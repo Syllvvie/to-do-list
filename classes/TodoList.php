@@ -21,4 +21,12 @@ class TodoList {
         $stmt->bindParam(':titulo', $titulo);
         return $stmt->execute();
     }
+
+    //Excluir
+    public function excluir($id) {
+        $sql = "DELETE FROM tarefas WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        return $stmt->execute();
+    }
 }

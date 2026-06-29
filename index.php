@@ -20,6 +20,7 @@ $tarefas = $todoList->listar();
             <?php foreach ($tarefas as $t) { ?>
                 <tr>
                     <td><?php echo $t['titulo']; ?></td>
+                    <td><a href="excluir.php?id=<?php echo $t['id']; ?>">Excluir</a></td>
                 </tr>
             <?php } ?>
         </table>
