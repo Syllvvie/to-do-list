@@ -6,6 +6,7 @@ Projeto de estudo para praticar lógica de programação, PHP orientado a objeto
 - Criar tarefas
 - Marcar tarefas como concluídas
 - Excluir tarefas
+- Rolagem Vertical
 
 ## Tecnologias utilizadas
 - PHP (PDO)
