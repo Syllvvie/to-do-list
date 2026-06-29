@@ -13,4 +13,12 @@ class TodoList {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    //Criar
+    public function criar($titulo) {
+        $sql = "INSERT INTO tarefas (titulo) VALUES (:titulo)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':titulo', $titulo);
+        return $stmt->execute();
+    }
 }

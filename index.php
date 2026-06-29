@@ -4,7 +4,24 @@ require 'classes/TodoList.php';
 
 $todoList = new TodoList($conn);
 $tarefas = $todoList->listar();
+?>
 
-foreach ($tarefas as $t) {
-    echo $t['titulo'] . "<br>";
-}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lista de Tarefas</title>
+    </head>
+    <body>
+        <form method="POST" action="criar.php">
+        <input type="text" name="titulo" placeholder="Digite a tarefa...">
+        <button type="submit">Criar</button>
+        </form>
+        <table>
+            <?php foreach ($tarefas as $t) { ?>
+                <tr>
+                    <td><?php echo $t['titulo']; ?></td>
+                </tr>
+            <?php } ?>
+        </table>
+    </body>
+</html>
