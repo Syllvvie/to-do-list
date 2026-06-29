@@ -29,4 +29,12 @@ class TodoList {
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }
+
+    //Concluida
+    public function concluir($id) {
+        $sql = "UPDATE tarefas SET concluida = NOT concluida WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        return $stmt->execute();
+    }
 }
