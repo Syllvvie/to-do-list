@@ -22,21 +22,23 @@ $tarefas = $todoList->listar();
                 <button type="submit">Criar</button>
             </form>
 
-            <table class="lista">
-                <?php foreach ($tarefas as $t) { ?>
-                    <tr class="tarefa">
-                        <td><a href="concluir.php?id=<?= $t['id'] ?>">
-                            <?php if ($t['concluida']): ?>
-                                <i class="fa-solid fa-square-check"></i>
-                            <?php else: ?>
-                                <i class="fa-regular fa-square"></i>
-                            <?php endif; ?>
-                        </a></td>
-                        <td><span <?= $t['concluida'] ? ' style="text-decoration: line-through;"' : '' ?>><?= $t['titulo'] ?></span></td>
-                        <td><a href="excluir.php?id=<?= $t['id'] ?>"><i class="fa-solid fa-x" style="color: rgb(255, 10, 10);"></i></a></td>
-                    </tr>
-                <?php } ?>
-            </table>
+            <div class="table-container">
+                <table class="lista">
+                    <?php foreach ($tarefas as $t) { ?>
+                        <tr class="tarefa">
+                            <td><a href="concluir.php?id=<?= $t['id'] ?>">
+                                <?php if ($t['concluida']): ?>
+                                    <i class="fa-solid fa-square-check"></i>
+                                <?php else: ?>
+                                    <i class="fa-regular fa-square"></i>
+                                <?php endif; ?>
+                            </a></td>
+                            <td><span <?= $t['concluida'] ? ' style="text-decoration: line-through;"' : '' ?>><?= $t['titulo'] ?></span></td>
+                            <td><a href="excluir.php?id=<?= $t['id'] ?>"><i class="fa-solid fa-x" style="color: rgb(255, 10, 10);"></i></a></td>
+                        </tr>
+                    <?php } ?>
+                </table>
+            </div>
         </div>
     </body>
 </html>

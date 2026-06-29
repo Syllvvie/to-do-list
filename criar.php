@@ -3,6 +3,8 @@ require 'conexao.php';
 require 'classes/TodoList.php';
 
 $todoList = new TodoList($conn);
-$todoList->criar($_POST['titulo']);
+if (!empty($_POST['titulo'])) {
+    $todoList->criar($_POST['titulo']);
+}
 
 header("Location: index.php");

@@ -21,6 +21,12 @@ body {
     background-color: #fff;
 }
 
+.table-container {
+    overflow-x: auto;
+    height: 300px;
+    scrollbar-gutter: stable;
+}
+
 .titulo {
     text-align: center;
     border: 2px solid #333;
