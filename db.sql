@@ -1,0 +1,9 @@
+CREATE DATABASE todolist;
+
+USE todolist;
+
+CREATE TABLE tarefas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(30) NOT NULL,
+    concluida BOOLEAN NOT NULL DEFAULT FALSE
+)
