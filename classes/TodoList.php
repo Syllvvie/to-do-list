@@ -1,15 +1,17 @@
 <?php
-class TodoList {
-    private $conn;
+require_once 'Database.php';
 
-    public function __construct($conexao) {
-        $this->conn = $conexao;
+class TodoList {
+    private $db;
+
+    public function __construct() {
+        $this->db = (new Database())->connect();
     }
 
     //Listar
     public function listar() {
         $sql = "SELECT * FROM tarefas";
-        $stmt = $this->conn->prepare($sql);
+        $stmt = $this->db->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -17,7 +19,7 @@ class TodoList {
     //Criar
     public function criar($titulo) {
         $sql = "INSERT INTO tarefas (titulo) VALUES (:titulo)";
-        $stmt = $this->conn->prepare($sql);
+        $stmt = $this->db->prepare($sql);
         $stmt->bindParam(':titulo', $titulo);
         return $stmt->execute();
     }
@@ -25,7 +27,7 @@ class TodoList {
     //Excluir
     public function excluir($id) {
         $sql = "DELETE FROM tarefas WHERE id = :id";
-        $stmt = $this->conn->prepare($sql);
+        $stmt = $this->db->prepare($sql);
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }
@@ -33,7 +35,7 @@ class TodoList {
     //Concluida
     public function concluir($id) {
         $sql = "UPDATE tarefas SET concluida = NOT concluida WHERE id = :id";
-        $stmt = $this->conn->prepare($sql);
+        $stmt = $this->db->prepare($sql);
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
     }

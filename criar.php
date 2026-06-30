@@ -1,9 +1,8 @@
 <?php
-require 'conexao.php';
 require 'classes/TodoList.php';
 
-$todoList = new TodoList($conn);
 if (!empty($_POST['titulo'])) {
+    $todoList = new TodoList();
     $todoList->criar($_POST['titulo']);
 }
 

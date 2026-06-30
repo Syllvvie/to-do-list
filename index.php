@@ -1,9 +1,8 @@
 <?php
-require 'conexao.php';
-require 'classes/TodoList.php';
+require 'Classes/TodoList.php';
 
-$todoList = new TodoList($conn);
-$tarefas = $todoList->listar();
+$todolist = new TodoList();
+$todolist->listar();
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +23,7 @@ $tarefas = $todoList->listar();
 
             <div class="table-container">
                 <table class="lista">
-                    <?php foreach ($tarefas as $t) { ?>
+                    <?php foreach ($todolist as $t) { ?>
                         <tr class="tarefa">
                             <td><a href="concluir.php?id=<?= $t['id'] ?>">
                                 <?php if ($t['concluida']): ?>

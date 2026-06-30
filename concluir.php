@@ -1,8 +1,7 @@
 <?php
-require 'conexao.php';
 require 'classes/TodoList.php';
 
-$todoList = new TodoList($conn);
+$todoList = new TodoList();
 $todoList->concluir($_GET['id']);
 
 header("Location: index.php");
