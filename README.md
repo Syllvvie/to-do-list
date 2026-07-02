@@ -17,7 +17,7 @@ Projeto de estudo para praticar lógica de programação, PHP orientado a objeto
 ## Como executar
 1. Clone o repositório
 2. Importe o arquivo `db.sql` no seu MySQL
-3. Configure as credenciais do banco em `conexao.php`
+3. Configure as credenciais do banco em `Classes/Database.php`
 4. Rode em um servidor local (XAMPP, Laragon, etc)
 
 ## Status

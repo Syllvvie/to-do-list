@@ -14,12 +14,6 @@ class TodoList {
         $stmt = $this->db->query($sql);
         $todolist = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        foreach ($todolist as $t) {
-            $t['id'];
-            $t['concluida'];
-            $t['titulo'];
-        } 
-
         return $todolist;
     }
 

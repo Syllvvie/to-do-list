@@ -2,6 +2,8 @@
 require 'Classes/TodoList.php';
 
 $todoList = new TodoList();
-$todoList->excluir($_GET['id']);
+if (!empty($_POST['id'])) {
+    $todoList->excluir($_POST['id']);
+}
 
 header("Location: index.php");

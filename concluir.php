@@ -1,7 +1,9 @@
 <?php
-require 'classes/TodoList.php';
+require 'Classes/TodoList.php';
 
 $todoList = new TodoList();
-$todoList->concluir($_GET['id']);
+if (!empty($_POST['id'])) {
+    $todoList->concluir($_POST['id']);
+}
 
 header("Location: index.php");
