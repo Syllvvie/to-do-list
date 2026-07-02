@@ -11,17 +11,25 @@ class TodoList {
     //Listar
     public function listar() {
         $sql = "SELECT * FROM tarefas";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $stmt = $this->db->query($sql);
+        $todolist = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($todolist as $t) {
+            $t['id'];
+            $t['concluida'];
+            $t['titulo'];
+        } 
+
+        return $todolist;
     }
 
     //Criar
     public function criar($titulo) {
         $sql = "INSERT INTO tarefas (titulo) VALUES (:titulo)";
         $stmt = $this->db->prepare($sql);
-        $stmt->bindParam(':titulo', $titulo);
-        return $stmt->execute();
+        $stmt->execute([
+            'titulo' => $titulo
+        ]);
     }
 
     //Excluir

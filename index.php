@@ -2,7 +2,7 @@
 require 'Classes/TodoList.php';
 
 $todolist = new TodoList();
-$todolist->listar();
+$tarefas = $todolist->listar();
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ $todolist->listar();
 
             <div class="table-container">
                 <table class="lista">
-                    <?php foreach ($todolist as $t) { ?>
+                    <?php foreach ($tarefas as $t) { ?>
                         <tr class="tarefa">
                             <td><a href="concluir.php?id=<?= $t['id'] ?>">
                                 <?php if ($t['concluida']): ?>

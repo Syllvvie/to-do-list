@@ -1,8 +1,7 @@
 <?php
 require 'classes/TodoList.php';
-
+$todoList = new TodoList();
 if (!empty($_POST['titulo'])) {
-    $todoList = new TodoList();
     $todoList->criar($_POST['titulo']);
 }
 
